@@ -4,7 +4,7 @@
 
 	▶ Name: Youjin An
 	▶ Date: 5 July.2019
-	▶ Part: Milestone 1
+	▶ Part: Milestone 1.1
 
 ***********************************************************************/
 

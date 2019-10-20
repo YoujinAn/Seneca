@@ -1,11 +1,11 @@
 /***********************************************************************
-// IPC144 Milestone 2 Contacts
+// IPC144 Milestone 3 Contacts
 // File contacts.h
 
 	▶ Name: Youjin An
 	▶ Email: auj0827@gmail.com
 	▶ Date: 12 July.2019
-	▶ Part: Milestone 3
+	▶ Part: Milestone 1.3
 	
 ***********************************************************************/
 

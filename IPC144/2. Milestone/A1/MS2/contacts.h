@@ -5,7 +5,7 @@
 	▶ Name: Youjin An
 	▶ Email: auj0827@gmail.com
 	▶ Date: 07 July.2019
-	▶ Part: Milestone 2
+	▶ Part: Milestone 1.2
 	
 ***********************************************************************/
 
