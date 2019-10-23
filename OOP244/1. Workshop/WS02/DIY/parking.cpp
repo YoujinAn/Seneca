@@ -1,31 +1,35 @@
 /***********************************************************************
-// OOP244 Workshop 2: SenePark application 
-// File	parking.cpp
-// Version 1.0
-// Date	2019/09/15
-// Author	Fardad Soleimanloo
-// Description
-// This is a parking application using the ParkingLot and
-// ParkingSpot modules of DIY section of the workshop.
-// Revision History
-// -----------------------------------------------------------
-// Name            Date            Reason
-// Fardad
-/////////////////////////////////////////////////////////////////
+// OOP244 Workshop 2: Dynamic Memory
+
+// File	parking.h
+
+	¢º Name: Youjin An
+	¢º Part: DIY (DO IT YOURSELF)
+	¢º Date: 2019/09/24
+
 ***********************************************************************/
+
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <iostream>
 using namespace std;
+
 #include "ParkingLot.h"
 #include "utils.h"
+
 using namespace sdds;
+
 int menu();
 int main(void) {
+
    ParkingLot SenePark;
    int noOfSpots=0;
    int spotNumber=0;
    int selection = -1;
    setEmpty(SenePark);
+
    cout << "SenePark Valet Parking" << endl << endl;
+
    while (selection) {
       switch (selection = menu())      {
       case 0: // close parking
@@ -77,7 +81,9 @@ int main(void) {
       }
    }
 }
+
 int menu() {
+
    int option;
    cout << "1- Open Parking" << endl
       << "2- Park A Car" << endl
@@ -85,6 +91,7 @@ int menu() {
       << "0- Close Parking" << endl
       << "> ";
    read(option, 0, 3, "Invalid Option.\n> ");
+
    return option;
 }
 

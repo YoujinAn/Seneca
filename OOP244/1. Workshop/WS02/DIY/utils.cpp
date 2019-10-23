@@ -1,24 +1,21 @@
 /***********************************************************************
-// OOP244 Workshop 2: read functions for foolproof integer and C string
-//                    data entry
+// OOP244 Workshop 2: Dynamic Memory
+
 // File	utils.cpp
-// Version 1.0
-// Date	2019/09/15
-// Author	Fardad Soleimanloo
-// Description
-// 
-// Revision History
-// -----------------------------------------------------------
-// Name            Date            Reason
-// Fardad
-/////////////////////////////////////////////////////////////////
+
+	¢º Name: Youjin An
+	¢º Part: DIY (DO IT YOURSELF)
+	¢º Date: 2019/09/24
+
 ***********************************************************************/
-#define _CRT_SECURE_NO_WARNINGS
+
 #include <iostream>
-#include <cstring>
+
 using namespace std;
 #include "utils.h"
+
 namespace sdds {
+
    // reads an integer from console the integer referenced by "val"
    // argument.
    // if the user enters an invalid integer or values outside of the 
@@ -41,6 +38,7 @@ namespace sdds {
          }
       } while (!ok && cout <<ErrorMess);
    }
+
    // reads a C style string from console up to "len" characters into the
    // the string pointed by the "str" pointer
    // if the user enters more than "len" characters, this function
@@ -50,7 +48,7 @@ namespace sdds {
       bool ok;
       do {
          ok = true;
-         cin.getline(str, len + 1, '\n');
+         cin.getline(str, len+1, '\n');
          if (cin.fail()) {
             cin.clear();
             cin.ignore(1000, '\n');
@@ -58,6 +56,4 @@ namespace sdds {
          }
       }while(!ok && cout << errorMessage);
    }
-
-
 }
