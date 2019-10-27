@@ -53,7 +53,7 @@ namespace sdds {
 		char temp_PS_modelOfcar[61] = "";
 
 		cout << "Make and Model: ";
-		read(temp_PS_modelOfcar, 61, "Too long, Make and model must be shorter than 60 characters\nRedo Entry: ");
+		read(temp_PS_modelOfcar, 60, "Too long, Make and model must be shorter than 60 characters\nRedo Entry: ");
 
 		PS.PS_modelOfcar = new char[ strlen(temp_PS_modelOfcar) + 1 ];
 		strcpy(PS.PS_modelOfcar, temp_PS_modelOfcar);

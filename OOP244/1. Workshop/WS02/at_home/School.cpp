@@ -25,7 +25,7 @@ namespace sdds {
 
 		char school_name [61] = "";
 		cout << "Please enter the name of the school:\n> ";
-		read(school_name, 61, "Name is too long, only 60 characters allowed!\nRedo Entry: ");
+		read(school_name, 60, "Name is too long, only 60 characters allowed!\nRedo Entry: ");
 
 		Sch.m_name = new char[ strlen(school_name) + 1] ; // dynamically memory for 'school_name'
 		strcpy(Sch.m_name, school_name);

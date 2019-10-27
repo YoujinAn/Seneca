@@ -23,7 +23,7 @@ namespace sdds {
 
 	void read(char* m_subjectName) {
 		cout << "Enter subject name: ";
-		read(m_subjectName, 71, "Name is too long, only 70 characters allowed!\nRedo Entry: ");
+		read(m_subjectName, 70, "Name is too long, only 70 characters allowed!\nRedo Entry: ");
 	}
 	
 	void read(int& m_noOfSections) {
