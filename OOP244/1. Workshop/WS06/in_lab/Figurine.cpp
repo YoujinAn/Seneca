@@ -28,16 +28,14 @@ namespace sdds {
 	Figurine::Figurine(const char* nick_name, const char* fig_pose, double fig_price) {
 
 		//  the name or the pose is either nullptr or an empty string then set the Figurine to a safe empty state. 
-		if (nick_name == nullptr || fig_pose == nullptr) {
 			name[0] = '\0';
 			pose = nullptr;
 			price = 0.0;
-		}
-		else {
+
+		if (nick_name != nullptr && fig_pose != nullptr) {
 			// name
 			if (strlen(nick_name) > MAX_NAME_LEN) {
-				strcpy(name, nick_name);
-				name [strlen(name) + 1] = '\0';
+				setName(nick_name);
 			}
 			else {
 				setName(nick_name);
@@ -56,7 +54,7 @@ namespace sdds {
 		pose = nullptr;
 	}
 
-	Figurine::Figurine(const Figurine& copy_fig) : price(copy_fig.price) {
+	Figurine::Figurine(const Figurine& copy_fig) {
 		// name
 		strcpy(name, copy_fig.name);
 
@@ -65,25 +63,33 @@ namespace sdds {
 			pose = nullptr;
 		}
 		else {
-			pose = new char[strlen(copy_fig.pose) + 1];
-			strcpy(pose, copy_fig.pose);
-			pose[strlen(pose) + 1] = '\0';
+			// pose = nullptr. Before it is deleted in the setPose
+			pose = nullptr;
+
+			setPose(copy_fig.pose);
 		}
+
+		// price
+		price = copy_fig.price;
 	}
 
 	void Figurine::setName(const char* set_name) {
-		strcpy(name, set_name);
+		strncpy(name, set_name, MAX_NAME_LEN);
 		name[strlen(name) + 1] = '\0';
 	}
 
 	void Figurine::setPose(const char* set_pose) {
+		// **if there is some data, they should be deleted 
+		// (FigurineTester.cpp Line 65,73)
+		delete[] pose; 
+
 		pose = new char[strlen(set_pose) + 1];
 		strcpy(pose, set_pose);
 		pose[strlen(pose)] = '\0';
 	}
 
 	void Figurine::setPrice(double set_price) {
-		if (set_price < 1) {
+		if (set_price < 1.0) {
 			price = DEFAULT_PRICE;
 		}
 		else {
@@ -100,7 +106,7 @@ namespace sdds {
 
 			cout << "Name: " << name << endl;
 			cout << "Pose: " << pose << endl;
-			cout << "Pirce: " << fixed << setprecision(2) << price << endl;
+			cout << "Price: " << fixed << setprecision(2) << price << endl;
 		}
 
 		return cout;
