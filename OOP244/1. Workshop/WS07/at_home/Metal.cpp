@@ -19,17 +19,16 @@
 
 namespace sdds {
 
-	Metal::Metal() {
+	Metal::Metal() : Ore(){
 		name = nullptr;
 		mohs = 0.0;
-		Ore::Ore();
 	}
 
 	Metal::Metal(double M_weight, int M_purity, const char* M_classification, const char* M_name, double M_mohs): Ore(M_weight, M_purity, M_classification) {
 
 		if (M_name == nullptr || strlen(M_name) == 0) {
-
-			Metal();
+			// I have to use "*this()"
+			*this = Metal();
 		}
 
 		else {
