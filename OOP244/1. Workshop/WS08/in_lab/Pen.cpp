@@ -12,6 +12,7 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
+#include <cstring>
 #include "Pen.h"
 
 namespace sdds {
@@ -23,7 +24,8 @@ namespace sdds {
 
 	Pen::Pen(const char* style_pen, int ink_pen) {
 		// style
-		if (style_pen == nullptr || strlen(style_pen) == 0) {
+		int style_len = strlen(style_pen);
+		if (style_pen == nullptr || style_len == 0) {
 			style = nullptr;
 			ink = 0;
 		}
@@ -55,7 +57,8 @@ namespace sdds {
 			cout << "Writing out the following: " << text << " with a Pen!" << endl;
 
 			int non_spaces = 0;
-			for (int i = 0; i < strlen(text); i++) {
+			int text_len = strlen(text);
+			for (int i = 0; i < text_len; i++) {
 				if (text[i] != ' ') {
 					non_spaces++;
 				}

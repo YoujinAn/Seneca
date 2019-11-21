@@ -13,7 +13,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <cstring>
-
 #include "Pencil.h"
 
 namespace sdds {
@@ -26,7 +25,8 @@ namespace sdds {
 	Pencil::Pencil(const char* HB_scale_pencil, int graphite_pencil) {
 
 		// HB_scale
-		if (HB_scale_pencil == nullptr || strlen(HB_scale_pencil) == 0) {
+		int HB_len = strlen(HB_scale_pencil);
+		if (HB_scale_pencil == nullptr || HB_len == 0) {
 			HB_scale[0] = '\0';
 			graphite = 0;
 		}
@@ -50,13 +50,14 @@ namespace sdds {
 	void Pencil::write(const char* text) {
 
 		if (graphite == 0) {
-			cout << "We can¡¯t write without graphite!" << endl;
+			cout << "We can't write without graphite!" << endl;
 		}
 		else if (graphite > 0) {
 			cout << "Writing out the following: " << text << " with a Pencil!" << endl;
 
 			int spaces = 0;
-			for (int i = 0; i < strlen(text); i++) {
+			int text_len = strlen(text);
+			for (int i = 0; i < text_len; i++) {
 				if (text[i] == ' ') {
 					spaces++;
 				}
