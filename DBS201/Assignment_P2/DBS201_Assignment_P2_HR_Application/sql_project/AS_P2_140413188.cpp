@@ -97,7 +97,8 @@ int main(void) {
 				cout << "********************* ADD emp *********************" << endl;
 				// Prompt the user to enter a value for the employee number
 				cout << "Employee Number: ";
-				emp.employeeNumber = getInt(0, 2000);
+				employeeNumber = getInt(0, 2000);
+				emp.employeeNumber = employeeNumber;
 				cout << "Last Name: ";
 				cin >> emp.lastName;
 				cout << "Fist Name: ";
