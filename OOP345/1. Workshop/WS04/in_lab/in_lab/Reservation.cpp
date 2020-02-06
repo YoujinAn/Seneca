@@ -35,7 +35,7 @@ namespace sdds {
         res_id = res.substr(0, id_fieldEnd); // get string from id_field
         res_id.erase(remove(res_id.begin(), res_id.end(), ' '), res_id.end()); // remove the ' '
         
-        res_name = res.substr(id_fieldEnd + 1, name_fieldEnd - id_fieldEnd - 1); // get string between res_id and res_name field
+        res_name = res.substr(id_fieldEnd, name_fieldEnd - id_fieldEnd); // get string between res_id and res_name field
         res_name.erase(remove(res_name.begin(), res_name.end(), ' '), res_name.end()); //remove the ' '
         
         res_email = res.substr(name_fieldEnd + 1, email_fieldEnd - name_fieldEnd - 1); // get string betwwen res_name and res_email field
