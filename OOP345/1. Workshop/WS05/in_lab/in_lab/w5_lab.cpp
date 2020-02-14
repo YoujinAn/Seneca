@@ -82,7 +82,9 @@ int main(int argc, char** argv)
 
 	// TODO: iterate over the library and update the price of each book
 	//         using the lambda defined above.
-
+	for (size_t i = 0; i < 7; i++) { // call lambda and check each array
+		fixedBookPrice(library[i]);
+	}
 
 	std::cout << "-----------------------------------------\n";
 	std::cout << "The library content (updated prices)\n";
