@@ -1,0 +1,32 @@
+// Name: Youjin An
+// Seneca Student ID:140413188
+// Seneca email:yan24@myseneca.ca
+// Date of completion:14 Feb, 2020
+
+1.the difference between the implementations/utilizations of a functor and a lambda expression.  When is appropriate to use each one?
+- In C++11 and later, a lambda expression—often called a lambda—is a convenient way of defining an anonymous function object (a closure) right at the location where it is invoked or passed as an argument to a function. 
+Typically lambdas are used to encapsulate a few lines of code that are passed to algorithms or asynchronous methods. 
+When using a function that is only called once, it can be replaced by a lambda function.
+The difference between utilization of a lambda expression and a functor is that lambda expressions are limited
+
+2. the constructor for `SpellChecker` generates an exception in certain conditions.  How would you change your code to achieve the same result, but without exceptions (both on the constructor and on the client side)? Compare the two solutions.
+- When we open a file from the main function, we can check the file for errors. Then we can check the output error called 'cerr' separately, so if we check instead, we don't have to change the file error separately from spellChecker.
+
+3. the classes `Movie` and `Book` contain almost identical logic in loading data from the file. How would you redesign the classes in order **not** to duplicate that logic?
+- A function for the same logic will be produced separately. It can be produced in a virtual parent class, where Movie and Book can be inherited under this function and made available for use. Then we can call up the function to find the words with the delimiter. We have the advantage of using code more efficiently.
+
+4. the classes `Movie` and `Book` are instantiated from the `main()` function using a custom constructor, but they also contain a default constructor.  Is the default constructor necessary? Could you remove it? Justify your answer.
+    - The default constructor will basically be created by the compiler without having to set it up separately. So even if we don't declare it separately, the program will run without any problems.
+
+
+▶ Quiz 4 Reflection.
+
+1. What is the main difference between Aggregation and Composition?
+
+Aggregation and composition are the types of Association. 
+The primary difference between aggregation and composition is that aggregation implicit a relationship 
+where the child can exist independently of the parent. 
+On the other hand, composition insinuates a relationship where the child cannot exist independent of the parent.
+
+AGGREGATION: In aggregation there exhibit a relationship where a child can exist independently of the parent.
+COMPOSITION: In composition the cannot exist independently of the parent.
