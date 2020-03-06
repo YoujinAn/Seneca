@@ -1,7 +1,7 @@
 // Name: Youjin An
 // Seneca Student ID:140413188
 // Seneca email:yan24@myseneca.ca
-// Date of completion:05 March, 2020
+// Date of completion:06 March, 2020
 
 #define _CRT_SECURE_NO_WARNINGS
 
@@ -12,6 +12,14 @@
 #include "Car.h"
 
 namespace sdds {
+
+    Car::Car()
+    {
+        c_tag = "";
+        c_maker = "";
+        c_condition = "";
+        top_speed = 0;
+    }
 
     Car::Car(std::istream& is) {
         std::string tmpCond;
@@ -61,7 +69,7 @@ namespace sdds {
     }
 
     void Car::display(std::ostream& out) const {
-        out << "| " << std::setw(10) << maker() << " | " << std::setw(6) << condition() << " | " << std::setw(6) << std::fixed << std::setprecision(2) << topSpeed() << " |";
+        out << "| " << std::setw(10) << std::right << maker() << " | " << std::setw(6) << std::left << condition() << " | " << std::setw(6) << std::fixed << std::setprecision(2) << topSpeed() << " |";
     }
 
     std::ostream& operator<<(std::ostream& os, const Car& obj) {

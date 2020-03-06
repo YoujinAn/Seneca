@@ -1,7 +1,7 @@
 // Name: Youjin An
 // Seneca Student ID:140413188
 // Seneca email:yan24@myseneca.ca
-// Date of completion:05 March, 2020
+// Date of completion:06 March, 2020
 
 #ifndef SDDS_AUTOSHOP_H
 #define SDDS_AUTOSHOP_H
@@ -25,6 +25,7 @@ namespace sdds
 		void display(std::ostream& out) const;
 
 		~Autoshop();
+
 		//  a template function that iterates over the vehicles stored in the m_vehicles
 		template<typename T>
 		void select(T test, std::list<const Vehicle*>& vehicles) {
