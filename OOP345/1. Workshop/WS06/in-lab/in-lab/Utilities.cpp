@@ -15,7 +15,7 @@ namespace sdds {
 		std::getline(in, line);
 
 		buf << line;
-		char tag;
+		char tag = '\0';
 		buf >> tag;
 
 		if (tag == 'c' || tag == 'C') {

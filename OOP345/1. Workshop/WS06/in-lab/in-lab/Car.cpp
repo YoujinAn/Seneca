@@ -13,18 +13,23 @@
 
 namespace sdds {
 
+    Car::Car()
+    {
+        c_tag = "";
+        c_maker = "";
+        c_condition = "";
+        top_speed = 0;
+    }
+
     Car::Car(std::istream& is) {
-        bool valid = true;
+
         std::string tmp = "";
         std::getline(is, tmp);
         size_t fieldOfTag = tmp.find(',');
         c_tag = tmp.substr(0, fieldOfTag);
         c_tag.erase(0, c_tag.find_first_not_of(" "));
         c_tag.erase(c_tag.find_last_not_of(" ") + 1);
-        if (c_tag != "C" || c_tag != "c") {
-            valid = false;
-        }
-
+        
         size_t fieldOfc_maker = tmp.find(',', fieldOfTag + 1);
         c_maker = tmp.substr(fieldOfTag + 1, fieldOfc_maker - fieldOfTag - 1);
         c_maker.erase(0, c_maker.find_first_not_of(" "));
@@ -34,13 +39,9 @@ namespace sdds {
         c_condition = tmp.substr(fieldOfc_maker + 1, fieldOfCondition - fieldOfc_maker - 1);
         c_condition.erase(0, c_condition.find_first_not_of(" "));
         c_condition.erase(c_condition.find_last_not_of(" ") + 1);
-        if (c_condition != "n" || c_condition != "u" || c_condition != "b")
-            valid = false;
 
         size_t fieldOfSpeed = tmp.length();
         top_speed = std::stod(tmp.substr(fieldOfCondition + 1, fieldOfSpeed - fieldOfCondition - 1));
-        if (!isdigit(top_speed))
-            valid = false;
 
     }
 
@@ -65,7 +66,7 @@ namespace sdds {
     }
 
     void Car::display(std::ostream& out) const {
-        out << "| " << std::setw(10) << maker() << " | " << std::setw(6) << condition() << " | " << std::setw(6) << std::fixed << std::setprecision(2) << topSpeed() << " |";
+        out << "| " << std::setw(10) << std::right << maker() << " | " << std::setw(6) << std::left << condition() << " | " << std::setw(6) << std::fixed << std::setprecision(2) << topSpeed() << " |";
     }
 
     std::ostream& operator<<(std::ostream& os, const Car& obj) {

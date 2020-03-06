@@ -8,6 +8,9 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <iomanip>
+#include <cstring>
 
 #include "Vehicle.h"
 
@@ -21,6 +24,7 @@ namespace sdds
 		double top_speed;
 
 	public:
+		Car();
 		Car(std::istream&); // a custom constructor that receives an object of type
 		
 		// a query that returns new, used or broken, representing the condition of the car
