@@ -4,7 +4,7 @@
 // Name: Youjin An
 // Seneca Student ID:140413188
 // Seneca email:yan24@myseneca.ca
-// Date of completion:05 March, 2020
+// Date of completion:06 March, 2020
 
 #ifndef SDDS_VEHICLE_H
 #define SDDS_VEHICLE_H

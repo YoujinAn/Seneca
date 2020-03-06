@@ -46,3 +46,9 @@ Other than that, there are naturally instances where you're going to need one or
 
 ▶ Quiz 5 Reflection.
 
+Q2)
+The STL inludes adapters for converting a container class to operate in a specific context.  
+The adaptors include:
+
+stack - last in, first out (LIFO) context
+queue - first in, first out (FIFO) context

@@ -1,7 +1,7 @@
 // Name: Youjin An
 // Seneca Student ID:140413188
 // Seneca email:yan24@myseneca.ca
-// Date of completion:05 March, 2020
+// Date of completion:06 March, 2020
 
 #ifndef SDDS_CAR_H
 #define SDDS_CAR_H
@@ -21,6 +21,7 @@ namespace sdds
 		double top_speed;
 
 	public:
+		Car();
 		Car(std::istream&); // a custom constructor that receives an object of type
 		
 		// a query that returns new, used or broken, representing the condition of the car
