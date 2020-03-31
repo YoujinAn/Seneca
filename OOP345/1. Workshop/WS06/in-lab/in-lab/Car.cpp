@@ -15,23 +15,18 @@ namespace sdds {
 
     Car::Car()
     {
-        c_tag = "";
+        // c_tag = "";
         c_maker = "";
         c_condition = "";
         top_speed = 0;
     }
 
     Car::Car(std::istream& is) {
-
         std::string tmp = "";
         std::getline(is, tmp);
-        size_t fieldOfTag = tmp.find(',');
-        c_tag = tmp.substr(0, fieldOfTag);
-        c_tag.erase(0, c_tag.find_first_not_of(" "));
-        c_tag.erase(c_tag.find_last_not_of(" ") + 1);
-        
-        size_t fieldOfc_maker = tmp.find(',', fieldOfTag + 1);
-        c_maker = tmp.substr(fieldOfTag + 1, fieldOfc_maker - fieldOfTag - 1);
+
+        size_t fieldOfc_maker = tmp.find(',', 2);
+        c_maker = tmp.substr(1, fieldOfc_maker - 1);
         c_maker.erase(0, c_maker.find_first_not_of(" "));
         c_maker.erase(c_maker.find_last_not_of(" ") + 1);
 
@@ -69,8 +64,8 @@ namespace sdds {
         out << "| " << std::setw(10) << std::right << maker() << " | " << std::setw(6) << std::left << condition() << " | " << std::setw(6) << std::fixed << std::setprecision(2) << topSpeed() << " |";
     }
 
-    std::ostream& operator<<(std::ostream& os, const Car& obj) {
+    /*std::ostream& operator<<(std::ostream& os, const Car& obj) {
         obj.display(os);
         return os;
-    }
+    }*/
 }

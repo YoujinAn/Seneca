@@ -1,6 +1,4 @@
-﻿  Autoshop.cpp
-  Car.cpp
-C:\Users\auj08\Desktop\Seneca\OOP345\1. Workshop\WS06\in-lab\in-lab\Car.cpp(42,22): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+﻿  Car.cpp
   Utilities.cpp
   w6_lab.cpp
   Generating Code...

@@ -18,7 +18,6 @@ namespace sdds
 {
 	class Car : public Vehicle {
 	private:
-		std::string c_tag;
 		std::string c_maker;
 		std::string c_condition; // a car can be new, used, or broken in need of repairs.
 		double top_speed;
@@ -34,7 +33,7 @@ namespace sdds
 		// a query that inserts in the first parameter the content of the car object
 		void display(std::ostream& out) const;
 
-		friend std::ostream& operator<<(std::ostream& os, const Car& obj);
+		//friend std::ostream& operator<<(std::ostream& os, const Car& obj);
 	};
 }
 
