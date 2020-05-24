@@ -1,4 +1,0 @@
-﻿  temps2.c
-c:\users\yan24\desktop\ws04\in_lab\temps2.c(47): warning C4474: 'printf' : too many arguments passed for format string
-  c:\users\yan24\desktop\ws04\in_lab\temps2.c(47): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
-  in_lab.vcxproj -> C:\Users\yan24\Desktop\WS04\in_lab\Debug\in_lab.exe

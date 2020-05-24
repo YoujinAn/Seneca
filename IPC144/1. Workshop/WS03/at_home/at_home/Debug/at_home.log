@@ -1,3 +1,0 @@
-﻿  temps.c
-C:\Users\auj08\Desktop\yan24\Seneca\IPC144\Workshop\WS03\at_home\at_home\temps.c(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (949). Save the file in Unicode format to prevent data loss
-  at_home.vcxproj -> C:\Users\auj08\Desktop\yan24\Seneca\IPC144\Workshop\WS03\at_home\Debug\at_home.exe
