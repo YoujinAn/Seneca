@@ -1,0 +1,147 @@
+// Name: Youjin An
+// Seneca Student ID:140413188
+// Seneca email:yan24@myseneca.ca
+// Date of completion:26 March, 2020
+
+1. Why was necessary to use binary files in this workshop and how did you use them
+Input and output are much faster using binary data. Converting a 32-bit integer to characters takes time. 
+A binary file is usually very much smaller than a text file that contains an equivalent amount of data. 
+Small files save storage space, can be transmitted faster, and are processed faster. 
+I/O with smaller files is faster, too, since there are fewer bytes to move.
+
+For example,
+
+void SecureData::backup(const char* file) {
+		if (!text)
+			throw std::string("\n***No data stored***\n");
+		else if (!encoded)
+			throw std::string("\n***Data is not encoded***\n");
+		else
+		{
+			// TODO: open a binary file for writing
+			std::ofstream ofs(file, std::ofstream::binary);
+
+			// TODO: write data into the binary file
+			//         and close the file
+			ofs.write(text, nbytes);
+			ofs.close();
+		}
+	}
+
+void SecureData::restore(const char* file, char key) {
+		// TODO: open binary file for reading
+		std::ifstream ifs(file, std::ifstream::binary);
+
+		// TODO: - allocate memory here for the file content
+		text = new char[nbytes + 1];
+
+		// TODO: - read the content of the binary file
+		ifs.read(text, nbytes);
+		text[nbytes] = '\0';
+
+		*ofs << "\n" << nbytes << " bytes copied from binary file "
+			<< file << " into memory.\n";
+
+		encoded = true;
+
+		// decode using key
+		code(key);
+
+		*ofs << "Data decrypted in memory\n\n";
+	}
+
+2. Why would be important to bind a function to its arguments, and how was it useful in this workshop
+Sometimes we need to manipulate the operation of a function according to the need, i.e changing some arguments to default etc. 
+Predefining a function to have default arguments restricts the versatility of a function and forces us to use the default arguments and that too with similar value each time. 
+From C++11 onwards, the introduction of bind function has made this task easier.
+
+#include <iostream> 
+#include <functional> // for bind() 
+using namespace std; 
+  
+// for placeholders 
+using namespace std::placeholders; 
+  
+// Driver function to demonstrate bind() 
+void func(int a, int b, int c) 
+{ 
+    cout << (a - b - c) << endl; 
+} 
+  
+int main() 
+{ 
+    // for placeholders 
+    using namespace std::placeholders; 
+  
+    // Use of bind() to bind the function 
+    // _1 is for first parameter and assigned 
+    // to 'a' in above declaration. 
+    // 2 is assigned to b 
+    // 3 is assigned to c 
+    auto fn1 =  bind(func, _1, 2, 3); 
+  
+    // 2 is assigned to a. 
+    // _1 is for first parameter and assigned 
+    // to 'b' in above declaration. 
+    // 3 is assigned to c. 
+    auto fn2 =  bind(func, 2, _1, 3); 
+  
+    // calling of modified functions 
+    fn1(10); 
+    fn2(10); 
+  
+    return 0; 
+} 
+
+In this WS09,
+
+void converter(char* t, char key, int n, const Cryptor& c) {
+		for (int i = 0; i < n; i++)
+			t[i] = c(t[i], key);
+	}
+
+void SecureData::code(char key)
+	{
+		// TODO (at-home): rewrite this function to use at least two threads
+		//         to encrypt/decrypt the text.
+		const int threadNum = 3;
+		int split = nbytes / threadNum;
+		std::thread t[threadNum];
+
+		Cryptor cryptors[threadNum];
+
+		for (int i = 0; i < threadNum; i++) {
+			t[i] = std::thread(std::bind(converter, text + i * split, key, i + 1 < threadNum ? split : (nbytes - i * split), cryptors[i]));
+		}
+		for (int i = 0; i < threadNum; i++) t[i].join();
+
+		encoded = !encoded;
+	}
+
+
+3. The advantages of using multiple threads, and how did you accomplished multi-threading in this workshop
+
+ 1) Less system resources needed for context switching
+ 2) Increased throughput of an application
+ 3) No special mechanism required for communication between tasks
+ 4) Simplify program structure
+
+void SecureData::code(char key)
+	{
+		// TODO (at-home): rewrite this function to use at least two threads
+		//         to encrypt/decrypt the text.
+		const int threadNum = 3;
+		int split = nbytes / threadNum;
+		std::thread t[threadNum];
+
+		Cryptor cryptors[threadNum];
+
+		for (int i = 0; i < threadNum; i++) {
+			t[i] = std::thread(std::bind(converter, text + i * split, key, i + 1 < threadNum ? split : (nbytes - i * split), cryptors[i]));
+		}
+		for (int i = 0; i < threadNum; i++) t[i].join();
+
+		encoded = !encoded;
+	}
+
+

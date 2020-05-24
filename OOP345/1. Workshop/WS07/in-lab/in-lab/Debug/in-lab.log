@@ -1,0 +1,5 @@
+﻿  SongCollection.cpp
+C:\Users\auj08\Desktop\Seneca\OOP345\1. Workshop\WS07\in-lab\in-lab\SongCollection.cpp(46,21): warning C4244: 'initializing': conversion from 'double' to 'size_t', possible loss of data
+  w7_lab.cpp
+  Generating Code...
+  in-lab.vcxproj -> C:\Users\auj08\Desktop\Seneca\OOP345\1. Workshop\WS07\in-lab\Debug\in-lab.exe

@@ -1,0 +1,32 @@
+-------------------------------------------
+Name: Youjin An
+Student number: 140413188
+Email: yan24@myseneca.ca
+Section: SII
+Date: July 07, 2019
+----------------------------------------------
+
+1. I could practice struct and how to accepts string.
+Getting string include space struggled to me.
+But it was solved using "[^\n]".
+[^\n] can be used instead to 'S' as %[^\n]
+
+2. Can you think of a more efficient way to ask a user to add the required information to each data field? Justify your thoughts with an example.
+
+1) Avoid mistake enter
+If the user has a mistake, the programmer has to make a function that it can accept the value again.
+2) Give information to accepting the connected value
+If the user has to put integer type, the programmer has to give information of the type to the use.
+
+3. Discuss the differences between a C string and a primitive character array. What would happen if you attempt to display the contents of a primitive character array (not a C string) using the printf specifier ¡°%s¡±?
+
+1) char str1[ ] = "My string";
+2) char str1[ ] = { 'M', 'y', 's', 't', 'r', 'i', 'n', 'g', '\0' };
+
+1) It be attached ¡®\0¡¯ character automatically. 
+2) Providing the size of the string here is optional but you must provide ¡®\0¡¯ character to indicate the end of the string.
+So, we will have to use gets() function. It will read a line until it encounters a new line or an end of line.
+char arr[12];
+gets(arr);
+
+When I attempt to display the contents of a primitive character array using the printf specifier "%s", I can see error. I have to use "%c"
