@@ -1,20 +1,17 @@
-import java.util.Scanner;
-
 public class Palindrome {
 	
-	public static void CheckPalidrome(String _input){
+	public static void main(String[] args) {
+		System.out.println("Entered string is "  + (CheckPalidrome(args[0]) ? "palindrome" : "not palindrome"));
+	}
+	
+	public static boolean CheckPalidrome(String _input){
 		String reverseString = reverseString(_input);
 		
-		if(reverseString.equals(_input)) {
-			System.out.println( _input + " is a palindrome.");
-		}
-		else {
-			System.out.println( _input + " is not a palindrome.");
-		}
+		return reverseString.equals(_input);
 	}
 	
 	public static String reverseString (String _input) {
-		Stack stack = new Stack(100);
+		Stack stack = new Stack(_input.length());
 		String temp = "";
 		
 		// push
@@ -28,15 +25,5 @@ public class Palindrome {
 		}		
 		
 		return temp;
-	}
-
-	public static void main(String[] args) {
-		// Enter string or number
-		System.out.println("Please enter: ");
-		
-		// User input
-		Scanner scanner = new Scanner(System.in);
-		String input = scanner.nextLine();
-		CheckPalidrome(input);
 	}
 }
