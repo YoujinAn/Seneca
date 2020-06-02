@@ -3,7 +3,7 @@
 * I declare that this assignment is my own work in accordance with Seneca Academic Policy. 
 * No part of this assignment has been copied manually or electronically from any other source 
 * (including web sites) or distributed to other students. 
-* * Name: Youjin An     Student ID: 140413188       Date: 25 May, 2020 
+* * Name: Youjin An     Student ID: 140413188       Date: 02 June, 2020 
 * Heroku Link: https://nameless-everglades-52094.herokuapp.com/ 
 * ********************************************************************************/
 
