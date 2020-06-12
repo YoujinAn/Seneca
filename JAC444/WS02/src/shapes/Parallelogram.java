@@ -53,11 +53,11 @@ public class Parallelogram implements Shape {
 	
 	@Override
 	public double getPerimeter() {
-		return 2 * getWidth() + 2 * getHeight();
+		return 2 * (getWidth() + getHeight());
 	}
 	
 	@Override
 	public String toString() {
-		return String.format("Parallelogram {w=%.1f, h=%.1f} perimeter = %.4f", getWidth(), getHeight(), getPerimeter());
+		return String.format("%s {w=%.1f, h=%.1f} perimeter = %.4f", getClass().getSimpleName(), getWidth(), getHeight(), getPerimeter());
 	}
 }

@@ -21,7 +21,9 @@ public class Main {
 		System.out.println("------->JAC 444 Assignment 1<-------");
 		System.out.println("------->Task 1 ... <-------");
 		
-		List<Shape> arrayOfShapes = new ArrayList<>();
+		// List<Shape> arrayOfShapes = new ArrayList<>();
+		Shape[] shapes = new Shape[100];
+		int index = 0;
 		
 		// read a file
 		try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
@@ -31,7 +33,7 @@ public class Main {
 				
 				// ["Triangle", "1.0", "2.0", "3.0"]
 				String[] tokens = s.split(",");
-				Shape shape = null;
+				// Shape shape = null;
 				
 				try {
 					switch(tokens[0]) {
@@ -43,7 +45,8 @@ public class Main {
 							double radius = Double.parseDouble(tokens[1]);
 						
 							// Create object
-							shape = new Circle(radius);
+							shapes[index] = new Circle(radius);
+							index++;
 						}	
 						break;
 						
@@ -53,7 +56,8 @@ public class Main {
 							double side2 = Double.parseDouble(tokens[2]);
 							double side3 = Double.parseDouble(tokens[3]);
 																		
-							shape = new Triangle(side1, side2, side3);
+							shapes[index] = new Triangle(side1, side2, side3);
+							index++;
 						}	
 						break;
 						
@@ -62,7 +66,8 @@ public class Main {
 							double width = Double.parseDouble(tokens[1]);
 							double height = Double.parseDouble(tokens[2]);
 																		
-							shape = new Parallelogram(width, height);
+							shapes[index] = new Parallelogram(width, height);
+							index++;
 						}
 						break;
 						
@@ -71,7 +76,8 @@ public class Main {
 							double width = Double.parseDouble(tokens[1]);
 							double length = Double.parseDouble(tokens[2]);
 												
-							shape = new Rectangle(width, length);
+							shapes[index] = new Rectangle(width, length);
+							index++;
 						}
 						break;
 						
@@ -79,7 +85,8 @@ public class Main {
 						if(tokens.length == 2) {
 							double side = Double.parseDouble(tokens[1]);
 																			
-							shape = new Square(side);
+							shapes[index] = new Square(side);
+							index++;
 						}
 						else{
 							continue; //ignore and continue read a file
@@ -98,21 +105,16 @@ public class Main {
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
 				}
-				
-				if (shape != null) {
-					// store only the valid line
-					arrayOfShapes.add(shape);
-				}
 			}		
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		} finally {
-			int size = arrayOfShapes.size();
-			System.out.println("\n" + size + " shapes were created:");
+			System.out.println("\n" + index + " shapes were created:");
 			
-			for(int i = 0; i < size; i++) {
-				System.out.println(arrayOfShapes.get(i) + "\n");
+			for(int i = 0; i < index; i++) {
+				System.out.println(shapes[i] + "\n");
 			}
 		}
+	
 	}
 }

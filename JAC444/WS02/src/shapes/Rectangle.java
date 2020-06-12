@@ -12,10 +12,15 @@ public class Rectangle extends Parallelogram {
 	public Rectangle(double width, double height) throws ParallelogramException {
 		super(width, height);
 	}
+	
+	@Override
+	public double getPerimeter() {
+		return 2 * (getWidth() + getHeight());
+	}
 
 	@Override
 	public String toString() {
-		return String.format("Rectangle {w=%.1f, h=%.1f} perimeter = %.4f", getWidth(), getHeight(), getPerimeter());
+		return String.format("%s {w=%.1f, h=%.1f} perimeter = %.4f", getClass().getSimpleName(), getWidth(), getHeight(), getPerimeter());
 	}
 }
 

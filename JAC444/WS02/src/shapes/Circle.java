@@ -42,10 +42,10 @@ private double radius;
 	@Override
 	public String toString() {
 		if (getRadius() >= 2) {
-			return String.format("Circle {r=%.1f} perimeter = %.4f", getRadius(), getPerimeter());
+			return String.format("%s {r=%.1f} perimeter = %.4f", getClass().getSimpleName(), getRadius(), getPerimeter());
 		}
 		else {
-			return String.format("Circle {r=%.1f} perimeter = %.5f", getRadius(), getPerimeter());
+			return String.format("%s {r=%.1f} perimeter = %.5f", getClass().getSimpleName(), getRadius(), getPerimeter());
 		}
 	}
 }

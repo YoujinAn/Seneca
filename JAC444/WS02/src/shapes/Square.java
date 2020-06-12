@@ -12,23 +12,45 @@ public class Square extends Rectangle {
 	public Square(double side) throws ParallelogramException {
 		super(side, side);
 	}
+	
+	@Override
+	public void setWidth(double width) throws ParallelogramException {
+		if(width > 0) {
+			super.setWidth(width);
+			super.setHeight(width);
+		}
+		else {
+			throw new ParallelogramException("Invalid side!");
+		}
+	}
+	
+	@Override
+	public void setHeight(double height) throws ParallelogramException {
+		if(height > 0) {
+			super.setWidth(height);
+			super.setHeight(height);
+		}
+		else {
+			throw new ParallelogramException("Invalid side!");
+		}
+	}
+	
+	@Override
+	public double getPerimeter() {
+		return 4 * getWidth();
+	}
 
 	@Override
 	public String toString() {
 		
-		/**
-		 * Output problem... I will figure out it.
-		 * Temporarily Use 'if(getHeight() >= 2)' things to match the output.
-		 */
-		 
 		if(getHeight() >= 100) {
-			return String.format("Square {s=%.1f} perimeter = %.3f", super.getHeight(), getPerimeter());
+			return String.format("%s {s=%.1f} perimeter = %.3f", getClass().getSimpleName(), super.getHeight(), getPerimeter());
 		}
 		else if(getHeight() >= 2) {
-			return String.format("Square {s=%.1f} perimeter = %.4f", super.getHeight(), getPerimeter());
+			return String.format("%s {s=%.1f} perimeter = %.4f", getClass().getSimpleName(), super.getHeight(), getPerimeter());
 		}
 		else if(getHeight() == 0.1) {
-			return String.format("Square {s=%.1f} perimeter = %.5f", super.getHeight(), getPerimeter());
+			return String.format("%s {s=%.1f} perimeter = %.5f", getClass().getSimpleName(), super.getHeight(), getPerimeter());
 		}
 		else {
 			return "Square {s=" + super.getHeight() + "}" + " perimeter = " + getPerimeter();
