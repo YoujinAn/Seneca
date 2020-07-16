@@ -65,11 +65,13 @@ public class Student {
 	}
 	
 	// ToString
+	@Override
 	public String toString() {
 		return String.format("%-9s%-9s%8.2f   %s", getFirstName(), getLastName(), getGrade(), getDepartment());
 	}
 	
 	// Equal
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
