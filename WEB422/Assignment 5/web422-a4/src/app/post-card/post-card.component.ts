@@ -10,14 +10,12 @@ import { BlogPost } from '../BlogPost';
 export class PostCardComponent implements OnInit {
 
   @Input() post: BlogPost;
+
  
   constructor() {
-    console.log(this.post);
    }
 
   ngOnInit(): void {
-    console.log(this.post);
+
   }
-
-
 }
