@@ -20,8 +20,11 @@ export class BlogComponent implements OnInit {
   constructor(private data: PostService, private route: ActivatedRoute) { }
 
   getPage(num) {
+    // console.log
     console.log(this.tag);
     console.log(this.category);
+
+    // Get all of the blog posts using the values of num, this.tag and this.category.
     this.querySub = this.data.getPosts(num, this.tag, this.category).subscribe(data => {
 
       if (data.length > 0) {
