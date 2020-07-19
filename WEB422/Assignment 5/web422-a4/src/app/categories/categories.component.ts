@@ -6,7 +6,6 @@ import { PostService } from '../post.service';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
-
 export class CategoriesComponent implements OnInit {
 
   categories: Array<any>;

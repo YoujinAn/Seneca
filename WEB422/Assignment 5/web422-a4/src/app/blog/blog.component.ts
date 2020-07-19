@@ -10,7 +10,6 @@ import { BlogPost } from '../BlogPost';
 })
 
 export class BlogComponent implements OnInit {
-
   blogPosts: Array<BlogPost>;
   page: number = 1;
   tag: string = null;
@@ -20,11 +19,8 @@ export class BlogComponent implements OnInit {
   constructor(private data: PostService, private route: ActivatedRoute) { }
 
   getPage(num) {
-    // console.log
     console.log(this.tag);
     console.log(this.category);
-
-    // Get all of the blog posts using the values of num, this.tag and this.category.
     this.querySub = this.data.getPosts(num, this.tag, this.category).subscribe(data => {
 
       if (data.length > 0) {
@@ -35,18 +31,21 @@ export class BlogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    console.log("Test");
     this.querySub = this.route.queryParams.subscribe(params => {
       if (params['tag']) {
         this.tag = params['tag'];
         this.category = null;
-      } else {
+      }
+      else {
         this.tag = null;
       }
-      if (params['category']) {
-        this.category = params['category'];
+
+      if (params['categories']) {
+        this.category = params['categories'];
         this.tag = null;
-      } else {
+      }
+      else {
         this.category = null;
       }
       this.getPage(+params['page'] || 1);
@@ -57,5 +56,6 @@ export class BlogComponent implements OnInit {
     if (this.querySub) {
       this.querySub.unsubscribe();
     }
+
   }
 }

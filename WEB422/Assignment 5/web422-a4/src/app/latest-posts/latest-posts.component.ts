@@ -7,7 +7,6 @@ import { PostService } from '../post.service';
   templateUrl: './latest-posts.component.html',
   styleUrls: ['./latest-posts.component.css']
 })
-
 export class LatestPostsComponent implements OnInit {
 
   posts: Array<BlogPost>;

@@ -40,7 +40,8 @@ import { FooterPostsComponent } from './footer-posts/footer-posts.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
