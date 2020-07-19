@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BlogPost } from '../BlogPost';
+import { PostService } from '../post.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-post-data',
@@ -9,11 +11,22 @@ import { BlogPost } from '../BlogPost';
 
 export class PostDataComponent implements OnInit {
 
-  @Input() post: BlogPost;
+  post: BlogPost;
+  private querySub: any;
 
-  constructor() { }
+  constructor(private data: PostService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.querySub = this.route.params.subscribe(params => {
+
+      this.data.getPostbyId(params['id']).subscribe(data => this.post = data);
+    });
   }
 
+  ngOnDestroy() {
+    if (this.querySub) {
+      this.querySub.unsubscribe();
+    }
+  }
 }
